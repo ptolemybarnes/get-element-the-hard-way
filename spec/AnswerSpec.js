@@ -34,14 +34,20 @@ describe('DomDescriptionParser', function() {
 
 describe('DomElementToDescriptionMatcher', function() {
   
-  var mockDomElement   = document.createElement('div'); 
-  mockDomElement.id    = 'some_id';
-
   it('returns true if a DOM element matches the DIV description', function() { 
+    var mockDomElement   = document.createElement('div'); 
+    mockDomElement.id    = 'some_id';
     var matchInfo = {tagName: 'DIV', id: 'some_id', className: ""} 
     var matcher   = new DomElementToDescriptionMatcher(matchInfo);
-
+   
     expect(matcher.isMatch(mockDomElement)).toEqual(true);
+  });
+
+  it('returns true if a single class matches the elements multiple classes', function() {
+    var matchInfo = {tagName: 'DIV', id: '', className: "some_class"} 
+    var matcher   = new DomElementToDescriptionMatcher(matchInfo);
+
+    expect(matcher._isClassNameAMatch('some_class some_other_class')).toEqual(true);
   });
 });
 
