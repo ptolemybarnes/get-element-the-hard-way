@@ -1,3 +1,5 @@
+var parser = new DOMParser();
+
 describe('DomDescriptionParser', function() {
   
   describe('parses a DOM element description into a hash', function() {
@@ -13,7 +15,7 @@ describe('DomDescriptionParser', function() {
     it('with the class property', function() {
       var expectation = domDescriptionParser.parse("img.some_class");
 
-      expect(expectation.class).toEqual('some_class');
+      expect(expectation.className).toEqual('some_class');
     });
     
     it('with an id property', function() {
@@ -21,6 +23,19 @@ describe('DomDescriptionParser', function() {
 
       expect(expectation.id).toEqual('some_id');
     });
+  });
+});
+
+describe('DomElementToDescriptionMatcher', function() {
+  
+  var mockDomElement = document.createElement('div'); 
+  mockDomElement.id  = 'some_id';
+
+  it('returns true if a DOM element matches the description', function() { 
+    var matcher = new DomElementToDescriptionMatcher({tagName: 'DIV',
+                                                           id: 'some_id'});
+
+    expect(matcher.isMatch(mockDomElement)).toEqual(true);
   });
 });
 
