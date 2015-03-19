@@ -58,8 +58,6 @@ for (answerName in answerList){
 
   for (; i < ii; i++) {
     var answerTag = answer[i].tagName; 
-    console.log(answer[i]);
-    console.log(answerTag);
     if (tagList[answerTag]) tagList[answerTag]++;
     else tagList[answerTag] = 1;
   }
