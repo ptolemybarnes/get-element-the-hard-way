@@ -21,7 +21,7 @@ describe('DomDescriptionParser', function() {
     it('with multiple class properties', function() {
       var expectation = domDescriptionParser.parse("img.some_class.some_other_class");
 
-      expect(expectation.classNames).toEqual(['some_class','some_other_class']);
+      expect(expectation.className).toEqual('some_class some_other_class');
     });
     
     it('with an id property', function() {
@@ -38,7 +38,7 @@ describe('DomElementToDescriptionMatcher', function() {
   mockDomElement.id    = 'some_id';
 
   it('returns true if a DOM element matches the DIV description', function() { 
-    var matchInfo = {tagName: 'DIV', id: 'some_id', classNames: ""} 
+    var matchInfo = {tagName: 'DIV', id: 'some_id', className: ""} 
     var matcher   = new DomElementToDescriptionMatcher(matchInfo);
 
     expect(matcher.isMatch(mockDomElement)).toEqual(true);
