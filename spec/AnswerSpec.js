@@ -18,12 +18,6 @@ describe('DomDescriptionParser', function() {
       expect(expectation.className).toEqual('some_class');
     });
 
-    it('with multiple class properties', function() {
-      var expectation = domDescriptionParser.parse("img.some_class.some_other_class");
-
-      expect(expectation.className).toEqual('some_class some_other_class');
-    });
-    
     it('with an id property', function() {
       var expectation = domDescriptionParser.parse("div.some_class#some_id");
 
