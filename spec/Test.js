@@ -54,9 +54,12 @@ var testsPassed = 0;
 
 for (answerName in answerList){
   var answer = answerList[answerName], i = 0, ii = answer.length, tagList = {};
+  // answer is the result of the $ function having been executed, an array.
 
   for (; i < ii; i++) {
-    var answerTag = answer[i].tagName;
+    var answerTag = answer[i].tagName; 
+    console.log(answer[i]);
+    console.log(answerTag);
     if (tagList[answerTag]) tagList[answerTag]++;
     else tagList[answerTag] = 1;
   }
