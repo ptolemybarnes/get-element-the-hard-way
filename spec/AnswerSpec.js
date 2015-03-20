@@ -9,7 +9,7 @@ describe('DomDescriptionParser', function() {
     it('with the tagName property', function() {
       var expectation = domDescriptionParser.parse("div");
 
-      expect(expectation.tagName).toEqual('DIV');
+      expect(expectation.tagName).toEqual('div');
     });
 
     it('with the class property', function() {
